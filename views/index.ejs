@@ -14,26 +14,33 @@
 	left:5%;
 	right:30%;
 	bottom:30%;
-	border: 2px solid red;
-	background:white;
+	border: 2px solid #335C67;
+	border-radius: 22px;
+	background:#ffe;
 	   overflow:auto;
 }
 .message{
-	 height:5%;
-	 margin:2%;
+display:none;
+height: auto;
 	 width:94%;
-	 background:red;
+	 color:maroon;
+	 background:#f0e0d6;
+	 border:1px solid #d9bfb7;
 }
-.info{
-display:inline-block;
 
-}
 .text{
+	word-wrap: break-word;
 display:inline-block;
 
 }
 .delete-b{
-display:inline-block;
+display:none;
+
+border-radius: 15px;
+border:1px solid #800;
+font-size:200%;
+background-color: #ea8;
+color:#800;
 
 }
 #id-container{
@@ -42,18 +49,69 @@ display:inline-block;
 	left:75%;
 	right:5%;
 	bottom:50%;
-		border: 2px solid red;
-	background:white;
+		border: 2px solid #335C67;
+	background:#ffe;
+	border-radius: 22px;
 }
-
+#word{
+	vertical-align: middle;
+	color:#117743;
+	font-size:200%;
+	line-height: 300%;
+	text-align: center;
+	margin: auto;
+	display:block;
+	height:30%;
+}
+#username{
+	font-size:200%;
+	width:50%;
+		height:30%;
+	margin: auto;
+display:block;
+}
+#enter{
+		height:30%;
+		width:50%;
+	margin: auto;
+	display:block;
+border-radius: 15px;
+border:1px solid #800;
+font-size:200%;
+background-color: #ea8;
+color:#800;
+}
 #send-container{
 		position:fixed;
 	top:75%;
 	left:5%;
 	right:30%;
 	bottom:5%;
-	border: 2px solid red;
-	background:white;
+	border: 2px solid #335C67;
+	background:#ffe;
+	border-radius: 22px;
+	padding-top: 1%;
+}
+#message-written{
+	top: 1%;
+display:block;
+height:40%;
+width:94%;
+margin: auto;
+margin-bottom: 1%;
+resize: none;
+
+}
+#send{
+display:block;
+height:40%;
+width:20%;
+margin: auto;
+border-radius: 15px;
+border:1px solid #800;
+font-size:200%;
+background-color: #ea8;
+color:#800;
 }
 @media (max-width: 1000px){
 	#id-container {
@@ -65,7 +123,7 @@ display:inline-block;
 	#messages-container{
 		left:5%;
 		right:5%;
-		top:22%;
+		top:20%;
 		bottom:22%;
 	}
 	#send-container{
@@ -75,25 +133,32 @@ display:inline-block;
 	top:80%;
 	}
 }
+@media (min-width: 1000px){
+	#username{
+		height:10%;
+	}
+	#enter{
+		height:10%;
+	}
+	}
 	  </style>
 
 </head>
 <body>
 	<div id="messages-container"> 
   <div class="message">
-  	<div class="info">sent</div>
   	<div class="text">lol</div>
 <button class="delete-b"></button>
   </div>
 	 </div>
 	 <form id="send-container">
 	 	<textarea type="text" id="message-written"></textarea>
-<button type="button" id="send">Send</button>
+<button type="button" id="send">SEND</button>
 	 </form >
 	<div id="id-container">
-<div id="word">Username</div>
+<div id="word">USERNAME</div>
 		<input id="username"></input>
-		<button id="enter">Login</button>
+		<button id="enter">LOGIN</button>
 	</div>
 	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="chat.js"></script>
