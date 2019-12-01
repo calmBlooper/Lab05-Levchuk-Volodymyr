@@ -17,7 +17,14 @@ send_message.click(function(){
 //Listen on new message
 socket.on("new_message", (data)=>{
 	console.log(data)
-	chatroom.append("<p class='message'>"+data.username+": "+data.message+"</p")
+	var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+var yyyy = today.getFullYear();
+
+today = String(mm + '/' + dd + '/' + yyyy);
+//document.write(today);
+	chatroom.append("<p class='message'>"+data.username+mm +today +": "+data.message+"</p")
 })
 //Emit a username
 send_username.click(function(){
