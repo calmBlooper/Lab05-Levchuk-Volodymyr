@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+	<title>Cool chat room </title> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+	  <style>
+	  	body {
+	background:url("https://st.depositphotos.com/2885805/5026/v/950/depositphotos_50266185-stock-illustration-seamless-background.jpg");
+}
+#messages-container {
+	position:fixed;
+	top:5%;
+	left:5%;
+	right:30%;
+	bottom:30%;
+	border: 2px solid red;
+	background:white;
+	   overflow:auto;
+}
+.message{
+	 height:5%;
+	 margin:2%;
+	 width:94%;
+	 background:red;
+}
+.info{
+display:inline-block;
+
+}
+.text{
+display:inline-block;
+
+}
+.delete-b{
+display:inline-block;
+
+}
+#id-container{
+	position:fixed;
+	top:5%;
+	left:75%;
+	right:5%;
+	bottom:50%;
+		border: 2px solid red;
+	background:white;
+}
+#send-container{
+		position:fixed;
+	top:75%;
+	left:5%;
+	right:30%;
+	bottom:5%;
+	border: 2px solid red;
+	background:white;
+}
+
+	  </style>
+
+</head>
+<body>
+	<div id="messages-container"> 
+  <div class="message">
+  	<div class="info">sent</div>
+  	<div class="text">lol</div>
+<button class="delete-b"></button>
+  </div>
+	 </div>
+	 <form id="send-container">
+	 	<textarea type="text" id="message-written"></textarea>
+<button type="button" id="send">Send</button>
+	 </form >
+	<div id="id-container">
+<div class="word">Username</div>
+		<input id="username"></input>
+		<div class="word">Password</div>
+		<input id="password"></input>
+		<button id="enter">Login</button>
+	</div>
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

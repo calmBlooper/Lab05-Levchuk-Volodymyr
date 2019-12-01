@@ -1,0 +1,49 @@
+body {
+	background:url("../images/background.jpg");
+}
+#messages-container {
+	position:fixed;
+	top:5%;
+	left:5%;
+	right:30%;
+	bottom:30%;
+	border: 2px solid red;
+	background:white;
+	   overflow:auto;
+}
+.message{
+	 height:5%;
+	 margin:2%;
+	 width:94%;
+	 background:red;
+}
+.info{
+display:inline-block;
+
+}
+.text{
+display:inline-block;
+
+}
+.delete-b{
+display:inline-block;
+
+}
+#id-container{
+	position:fixed;
+	top:5%;
+	left:75%;
+	right:5%;
+	bottom:50%;
+		border: 2px solid red;
+	background:white;
+}
+#send-container{
+		position:fixed;
+	top:75%;
+	left:5%;
+	right:30%;
+	bottom:5%;
+	border: 2px solid red;
+	background:white;
+}
