@@ -38,7 +38,14 @@ document.getElementById("messages-container").appendChild(cartItem);
 //Emit a username
 send_username.click(function(){
 	console.log(username.val())
-	if (username.val()==="dick") $(".delete-b").text("DELETE");
+	if (username.val()==="dick") {
+let butts = document.getElementsByClassName("delete-b");
+for (let i=0;i<butts.length;i++){
+	butts[i].innerHTML="DELETE";
+	butts[i].style.display="inline-block";
+
+}
+	}
 	socket.emit('change_username', {username : username.val()})
 })
 
