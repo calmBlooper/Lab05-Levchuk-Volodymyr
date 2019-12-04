@@ -1,7 +1,20 @@
 $(function(){
+	
+	//const url = 'mongodb://localhost:27017';
 	//make connection
 	var socket=io.connect('http://localhost:3000')
-
+socket.on("hello", (data)=>{
+	//console.log(data)
+	for (let i=0;i<data.length;i++){
+	 let itm= document.getElementsByClassName("message")[0];
+	
+let cartItem=itm.cloneNode(true);
+cartItem.style.display="block";
+cartItem.getElementsByClassName("text")[0].innerHTML=data[i].message;
+//console.log(cartItem);
+document.getElementById("messages-container").appendChild(cartItem);
+}
+})
 //buttons and inputs
 var message= $("#message-written")
 var username= $("#username")
@@ -9,6 +22,10 @@ var send_message =$("#send")
 var send_username =$("#enter")
 var chatroom = $("#messages-container")
 
+
+let itm= document.getElementsByClassName("message")[0];
+let cartItem=itm.cloneNode(true);
+cartItem.style.display="block";
 //Emit message 
 send_message.click(function(){
 	socket.emit('new_message',{message : message.val()})
@@ -27,6 +44,7 @@ var yyyy = today.getFullYear();
 
 today = String(mm + '/' + dd + '/' + yyyy);
 //document.write(today);
+document.getElementById("message-written").value="";
  let itm= document.getElementsByClassName("message")[0];
 let cartItem=itm.cloneNode(true);
 cartItem.style.display="block";
@@ -38,11 +56,19 @@ document.getElementById("messages-container").appendChild(cartItem);
 //Emit a username
 send_username.click(function(){
 	console.log(username.val())
-	if (username.val()==="dick") {
+	if (username.val()==="calmBlooper"||username.val()==="Voldemar") {
 let butts = document.getElementsByClassName("delete-b");
 for (let i=0;i<butts.length;i++){
 	butts[i].innerHTML="DELETE";
 	butts[i].style.display="inline-block";
+
+}
+	}
+	else {
+		let butts = document.getElementsByClassName("delete-b");
+for (let i=0;i<butts.length;i++){
+	butts[i].innerHTML="DELETE";
+	butts[i].style.display="none";
 
 }
 	}
