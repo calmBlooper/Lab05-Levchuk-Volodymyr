@@ -55,11 +55,11 @@ io.on('connection', (socket)=>{
     useUnifiedTopology: true
   }, (err, client) => {
   if (err) {
-  	console.log("there is a problem")
+  //	console.log("there is a problem")
     console.error(err)
     return
   }
-  console.log("success");
+ // console.log("success");
   const db = client.db('kennel')
 const collection = db.collection('messages')
 
@@ -79,7 +79,68 @@ socket.emit('hello', info);
 	socket.on('change_username',(data)=>{
 		socket.username=data.username
 	})
+socket.on('delete_message',(data)=>{
+	//console.log(data.message);
+	//.deleteOne( { "_id" : ObjectId("563237a41a4d68582c2509da") } );
 
+	mongo.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }, (err, client) => {
+  if (err) {
+  	console.log("there is a problem")
+    console.error(err)
+    return
+  }
+ // console.log("success");
+  const db = client.db('kennel')
+  //db.messages.remove({})
+let collection2 = db.collection('messages')
+
+collection2.deleteOne({message:data.message.substring(0,12)+data.message.substring(13,20)+ data.message.substring(21,data.message.length-1)}, function(err, obj) {
+    
+    	let info2;
+	mongo.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }, (err, client) => {
+  if (err) {
+  //	console.log("there is a problem")
+    console.error(err)
+    return
+  }
+ // console.log("success");
+  const db = client.db('kennel')
+const collection = db.collection('messages')
+
+collection.find().toArray((err, items) => {
+info2=items;
+io.sockets.emit('refresh', info2);
+
+})
+  //...
+})
+
+
+    if (err) throw err;
+    //console.log(data.message.substring(0,12)+data.message.substring(13,20)+ data.message.substring(21,data.message.length-1));
+   // console.log("1 document deleted");
+   // db.close();
+  });
+});
+
+/*collection2.find().toArray((err, items) => {
+console.log(items);
+})*/
+//collection.update (collection.remove({message : data.message}));
+
+  //...
+
+
+
+
+//end f delete
+})
 	//listen on new message
 	socket.on('new_message',(data)=>{
 		//broadcast the new message
@@ -97,11 +158,11 @@ let theMessage ="<font color=#117743>"+socket.username+"</font> at "+hrs+":"+mns
     useUnifiedTopology: true
   }, (err, client) => {
   if (err) {
-  	console.log("there is a problem")
+  	//console.log("there is a problem")
     console.error(err)
     return
   }
-  console.log("success");
+  //console.log("success");
   const db = client.db('kennel')
 const collection = db.collection('messages')
 collection.insertOne({message : theMessage}, (err, result) => {
